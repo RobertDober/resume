@@ -1,13 +1,11 @@
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed and maintainability.</p>
+  <h1>Welcome to <em>My Resumés</em></h1>
 </section>
 
 <section class="row">
-  <article class="column">
-    <h2>Resources</h2>
     <ul>
       <li>
+        <a href
         <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
       </li>
       <li>

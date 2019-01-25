@@ -1,0 +1,6 @@
+
+<header>
+  <p>
+  Name: <%= @yaml["name"] %>
+  </p>
+</header>

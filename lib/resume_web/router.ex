@@ -9,14 +9,15 @@ defmodule ResumeWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
+  # pipeline :api do
+  #   plug :accepts, ["json"]
+  # end
 
   scope "/", ResumeWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", CvController, :index
+    get "/cvs/:id/", CvController, :show
   end
 
   # Other scopes may use custom stacks.
