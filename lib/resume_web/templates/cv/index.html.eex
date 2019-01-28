@@ -23,7 +23,7 @@
             <%= cv.lang %>
           </td>
           <td>
-            <%= link "Show", to: Routes.cv_path(@conn, :show, cv.id) %>
+            <%= link "Show", to: Routes.cv_path(@conn, :show, cv.lang, cv.version) %>
           </td>
         </tr>
       <% end %>

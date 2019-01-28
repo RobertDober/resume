@@ -17,7 +17,7 @@ defmodule ResumeWeb.Router do
     pipe_through :browser
 
     get "/", CvController, :index
-    get "/cvs/:id/", CvController, :show
+    get "/cvs/:lang/:version", CvController, :show
   end
 
   # Other scopes may use custom stacks.

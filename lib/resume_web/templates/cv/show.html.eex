@@ -1,6 +1,6 @@
 
 <header>
   <p>
-  Name: <%= @yaml["name"] %>
+  Name: <%= @config["name"] %>
   </p>
 </header>

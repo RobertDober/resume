@@ -6,10 +6,10 @@ defmodule ResumeWeb.CvController do
     render(conn, "index.html", cvs: Cvs.list)
   end
 
-  def show(conn, %{"id" => id}) do
-    cv = Cvs.find(id)
-    yaml = Resume.Composer.get_cv(cv)
-    render(conn, "show.html", yaml: yaml, cv: cv)
+  def show(conn, %{"lang" => lang, "version" => version}) do
+    cv = Cvs.find(lang, version)
+    config = Resume.Composer.get_cv_config(cv)  |> IO.inspect
+    render(conn, "show.html", config: config, cv: cv)
   end
   
 end

@@ -1,16 +1,18 @@
 defmodule Resume.Cvs do
-  alias Resume.Cvs.CvLocation, as: Location
+  alias Resume.Cvs.Location
 
 
-  def find(id) do
-    {num_id, _} = Integer.parse(id)
-    Enum.find(list, fn %{id: actual_id} -> actual_id == num_id end)
+  def find(lang, version) do
+    Enum.find(list, fn 
+      %{lang: ^lang, version: ^version} -> true
+      _                                 -> false
+    end)
   end
 
   def list do
     [
-      %Location{id: 1, version: "2.0.0", title: "Dev Lead Full Stack"},
-      %Location{id: 2, version: "2.0.0", title: "Dev Lead Full Stack", lang: "en"},
+      %Location{lang: "fr", version: "2.0.0", title: "Dev Lead Full Stack"},
+      %Location{version: "2.0.0", title: "Dev Lead Full Stack", lang: "en"},
     ]
   end
   
