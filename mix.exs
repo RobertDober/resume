@@ -5,7 +5,7 @@ defmodule Resume.MixProject do
     [
       app: :resume,
       version: "0.1.0",
-      elixir: "~> 1.5",
+      elixir: "~> 1.8",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -41,6 +41,8 @@ defmodule Resume.MixProject do
       {:plug_cowboy, "~> 2.0"},
 
       {:yaml_elixir, "~> 2.1"},
+      {:earmark_tag_cloud, "~> 0.1"},
+      {:slime, "~> 1.2"},
     ]
   end
 end

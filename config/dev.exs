@@ -49,6 +49,7 @@ config :resume, ResumeWeb.Endpoint,
 config :resume, ResumeWeb.Endpoint,
   live_reload: [
     patterns: [
+      ~r{cvs/.*\.(?:md|slime)\z},
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/resume_web/views/.*(ex)$},

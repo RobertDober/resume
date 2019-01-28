@@ -8,8 +8,7 @@ defmodule ResumeWeb.CvController do
 
   def show(conn, %{"lang" => lang, "version" => version}) do
     cv = Cvs.find(lang, version)
-    config = Resume.Composer.get_cv_config(cv)  |> IO.inspect
-    render(conn, "show.html", config: config, cv: cv)
+    render(conn, "show.html", composer: Resume.Composer, cv: cv )
   end
   
 end

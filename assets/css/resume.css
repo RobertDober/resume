@@ -1,0 +1,42 @@
+body {
+  font-family:'Helvetica', 'Arial', sans-serif;
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+  height: 20rem;
+}
+
+
+.header-left {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.header-right {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  font-color: red;
+  color: red;
+}
+p {
+  margin: 0;
+}
+
+.name {
+  font-size: 16pt;
+  font-weight: 800;
+}
+.status {
+  font-size: 14pt;
+  font-weight: 400;
+}
