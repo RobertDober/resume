@@ -1,9 +1,14 @@
-
-<header class="header">
-  <div class="header-left">
-    <%= @composer.render(@cv, "header_left.md") %>
-  </div>
-  <div class="header-right">
-    <%= @composer.render(@cv, "header_right.md") %>
-  </div>
+<header class="container">
+  <div class="columns">
+    <div class="header-left">
+      <div class="column col-xl-9">
+        <%= @composer.render(@cv, "header_left.md") %>
+      </div> <!-- class col-9 -->
+    </div>
+    <div class="header-right">
+      <div class="column col-xl-3">
+        <%= @composer.render(@cv, "header_right.md") %>
+      </div>
+    </div>
+  </div> <!-- class="columns" -->
 </header>

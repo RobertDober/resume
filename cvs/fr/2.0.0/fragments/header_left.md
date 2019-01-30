@@ -1,5 +1,7 @@
 Robert Dober
 {:.name}
 
-Développeur Lead | Web / Full Stack
+&nbsp;
+
+Développeur Lead / Web / Full Stack
 {:.status}

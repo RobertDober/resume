@@ -4,14 +4,14 @@ body {
 .header {
   display: flex;
   justify-content: space-around;
-  height: 20rem;
+  height: auto;
 }
 
 
 .header-left {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .header-right {
