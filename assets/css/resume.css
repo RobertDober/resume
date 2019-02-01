@@ -19,6 +19,9 @@ body {
   flex-flow: column nowrap;
   justify-content: flex-start;
 }
+.profile {
+  display: flex;
+}
 ul {
   list-style-type: none;
 }

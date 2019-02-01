@@ -12,3 +12,6 @@
     </div>
   </div> <!-- class="columns" -->
 </header>
+<section class="profile">
+    <%= @composer.render(@cv, "profile.md") %> 
+</section>
