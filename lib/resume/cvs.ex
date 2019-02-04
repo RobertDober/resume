@@ -1,14 +1,6 @@
 defmodule Resume.Cvs do
   alias Resume.Cvs.Location
 
-
-  def find(lang, version) do
-    Enum.find(list, fn 
-      %{lang: ^lang, version: ^version} -> true
-      _                                 -> false
-    end)
-  end
-
   def list do
     [
       %Location{lang: "fr", version: "2.0.0", title: "Dev Lead Full Stack"},
@@ -16,4 +8,7 @@ defmodule Resume.Cvs do
     ]
   end
   
+  def yaml(lang, version) do
+    YamlElixir.read_all_from_file!(Path.join(["cvs", lang, version, "cv.yml"]))
+  end
 end

@@ -1,31 +1,34 @@
 defmodule Resume.Composer do
-  alias Resume.Cvs.Location
 
-  def get_cv_config(cv) do
-    with {:ok, yaml} <- YamlElixir.read_from_file(Location.path(cv, ["config.yml"])), do:
-    yaml
+  def get(cv, keys, tags \\ nil)
+  def get(cv, keys, tags) when is_binary(keys), do: get(cv, String.split(keys, "."), tags)
+  def get(cv, keys, tags) do
+    keys
+    |>  Enum.reduce(cv, fn key, current -> Map.get(current, key) end)
+    |> _tag(tags)
   end
 
-  def render_abs(cv, name) do
-    render(cv, String.replace(name, ~r{.*fragments/}, ""))
+  def get_many(cv, keys, values, tags \\ nil) do
+    get(cv, keys)
+    |> values_at(values)
+    |> Enum.map(fn val ->
+      if tags do
+        {:safe,"<#{tags}>#{val}</#{tags}>"}
+      else
+        {:safe, val}
+      end
+
+    end)
   end
 
-  def render(cv, name) do
-    cond do
-      Regex.match?(~r{\.md\z},name) -> render_md(cv, name)
-      Regex.match?(~r{\.slime\z},name) -> render_slime(cv, name)
-    end
+  def values_at(collection, values) do
+    values
+    |> Enum.reduce([], fn key, res -> [ Map.get(collection, key) | res ] end)
+    |> Enum.reverse
   end
 
-  def wildcard(cv, pattern), do: Location.wildcard(cv, pattern)
-
-
-  defp render_md(cv, name) do
-    content = File.read!(Location.path(cv, name))
-    {:safe, Earmark.as_html!(content)}
-  end
-  defp render_slime(cv, name) do
-    content = File.read!(Location.path(cv, name))
-    {:safe, Slime.render(content, config: get_cv_config(cv), cv: cv)}
-  end
+  defp _tag(content, tags)
+  defp _tag(content, _) when is_map(content), do: content
+  defp _tag(content, nil), do: {:safe, content}
+  defp _tag(content, symbol), do: {:safe, "<#{symbol}>#{content}</#{symbol}>"}
 end

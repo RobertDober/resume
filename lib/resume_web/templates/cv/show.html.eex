@@ -1,28 +1,33 @@
 <div class="container">
   <div class="row header">
     <div class="col s9 header-left">
-      <%= @composer.render(@cv, "header_left.md") %>
+
+      <%= @composer.get(@cv, ~w{content name}, :p) %>
+      <%= @composer.get(@cv, ~w{content role}, :p) %>
     </div>
     <div class="col s3 header-right">
-      <%= @composer.render(@cv, "header_right.md") %>
+      <%# <%= for datum <- @composer.get_many(@cv, ~w{content data}, ~w{mail www age}, :p ) do %1> %>
+      <%#     <%= datum %1> %>
+      <%# <% end %1> %>
+      <%# <%= @composer.render(@cv, "header_right.md") %1> %>
+      <% data = @composer.get(@cv, "content.data"
     </div>
   </div>
   <div class="divider">
   </div>
   <div class="section">
-    <%= @composer.render(@cv, "profile.md") %> 
+    <%# <%= @composer.render(@cv, "profile.md") %1> %> 
   </div>
   <div class="divider">
   </div>
   <div class="section">
-    <h1> TODO Get all from YML </h1>
     <h4>Experiences</h4>
     <div class="row head5">
       <div class="col s9">Siemens Autriche</div>
       <div class="col s3">1986 - 2000</div>
     </div>
-    <%= for experience <- @composer.wildcard( @cv, "experiences/*.md") do %>
-      <%= @composer.render_abs(@cv, experience) %>
-    <%= end %>
+    <%# <%= for experience <- @composer.wildcard( @cv, "experiences/*.md") do %1> %>
+    <%#   <%= @composer.render_abs(@cv, experience) %1> %>
+    <%# <%= end %1> %>
   </div>
 </div>

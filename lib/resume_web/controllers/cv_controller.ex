@@ -7,10 +7,10 @@ defmodule ResumeWeb.CvController do
   end
 
   def show(conn, %{"lang" => lang, "version" => version}) do
-    cv = Cvs.find(lang, version)
+    yaml = Cvs.yaml(lang, version) |> hd()
     conn
     # |> put_layout(false)
-    |> render("show.html", composer: Resume.Composer, cv: cv )
+    |> render("show.html", composer: Resume.Composer, cv: yaml )
   end
   
 end

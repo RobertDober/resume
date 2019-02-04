@@ -4,6 +4,8 @@ meta:
   lang: fr
 content:
   title: CV | Robert Dober | Lead Full Stack
+  name: Robert Dober
+  role: Lead Full Stack
   profile:
     - "> 10 années Ruby On Rails"
     - "> 30 années developpeur"
@@ -11,7 +13,7 @@ content:
     - "> 10 années DevOps"
   data:
     dob: 1962-01-22
-    age: 57
+    age: 57 ans
     status: marrié
     nat: Autrichienne
     mail: robert.dober@gmail.com
