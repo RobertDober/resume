@@ -1,0 +1,73 @@
+meta:
+  name: "Robert Dober"
+  version: v2.0.0
+  lang: fr
+content:
+  title: CV | Robert Dober | Lead Full Stack
+  profile:
+    - "> 10 années Ruby On Rails"
+    - "> 30 années developpeur"
+    - ">  4 années Lead"
+    - "> 10 années DevOps"
+  data:
+    dob: 1962-01-22
+    age: 57
+    status: marrié
+    nat: Autrichienne
+    mail: robert.dober@gmail.com
+    www: https://github.com/RobertDober
+  experiences:
+    - employer: Siemens Autriche
+      challenges: Responsable du fonctionnement d'une ferme de serveurs de test | Encadrement de 2 ingénieurs
+      job_title: Développeur, Admin Réseau & Systèmes
+      period: 1986 - 2000
+      tech: Ada, C, Informix, shell, Unix V, Linux, Solaris, TCP/IP
+    - employer: Siemens S.A.S
+      job_title: Développeur Sénior, Admin Réseau & Systèmes
+      period: 2001 - 2008
+      tech: Ruby, Python, Javascript
+    - employer: Uneek
+      challenges: support du Lead dans modélisation, implementation et test de fonctionalités d'un réseau social cooperatif
+      job_title: Développeur Web Full Stack
+      period: 2009 - 2010
+      tech: Ruby On Rails | JQuery 
+    - employer: Init-Sys
+      challenges: IHM classique | connection FE avec serveurs par AMQ
+      job_title: Développeur Web Backend
+      period: 2010
+      tech: Ruby On Rails | AMQ
+    - employer: Figaro Classifieds
+      challenges: CMS proprietaire | extension des modules (Twitter, RSS) | portage et extension BO (Prototype -> JQuery)
+      job_title: Développeur Web Full Stack
+      period: 2011
+      tech: Ruby On Rails | Prototype.js | JQuery
+    - employer: Up & Net
+      challenges: Custom Queries MySQL pour execution remote avec dRuby par un IHM Rails | Integration Google Maps | Rails App classique 
+      job_title: Développeur Web Full Stack
+      period: 2011 - 2013
+      tech: Ruby On Rails | dRuby (MRI ↔ jRuby, Linux ↔ Windows) | CoffeeScript | Google APIs | Websockets | PHP
+    - employer: Æglé
+      challenges: Portage d'un progiciel architécture Client & Server → Webapp
+      job_title: Développeur Senior Full Stack
+      period: 2013 - 2014
+      tech: Python & Flask | Ruby & Sinatra | Scala & Play | PHP & Silex | Informix | Backbone.js | sinon, chai | Lettuce
+    - employer: Pixagility
+      challenges: Portage d'un legacy système Ror vers une SOA | Encadrement de 2 ingénieurs
+      job_title: Développeur Lead Web
+      period: 2014 - 2015
+      tech: Ruby On Rails
+    - employer: Facilcom
+      challenges: Extension d'un système de gestion d'e-commerce | support du CTO pour la rearchitecture | Gem pour la gestion Redis sur Heroku
+      job_title: Développeur Full Stack 
+      period: 2016
+      tech: Ruby On Rails | Ember.js | Heroku | Redis | Sidekiq | RSpec
+    - employer: AF83
+      challenges: >
+        Connection EM ↔ RabbitMQ |
+        Clonage de schemata Postgres avec Stored Procedures | Administration d'import par serveurs externes dans l'IHM |
+        Conception d'un IHM & API pour gestion de robots de cuisine (API consommé par les robots, IHM avec FO & BO) |
+        Préparation de l'import des données par sources heterogénes |
+        Co-Encadrement de 5 ingenieurs
+      job_title: Développeur Lead Full Stack 
+      period: 2016 - 2019
+      tech: Ruby On Rails | Eventmachine | RabbitMQ | Redis | Postgres | SemanticUI | MongoDB | Sidekiq | RSpec
