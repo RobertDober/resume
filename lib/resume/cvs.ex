@@ -1,10 +1,9 @@
 defmodule Resume.Cvs do
-  alias Resume.Cvs.Location
 
   def list do
     [
-      %Location{lang: "fr", version: "2.0.0", title: "Dev Lead Full Stack"},
-      %Location{version: "2.0.0", title: "Dev Lead Full Stack", lang: "en"},
+      %{lang: "fr", version: "2.0.0", title: "Dev Lead Full Stack"},
+      %{version: "2.0.0", title: "Dev Lead Full Stack", lang: "en"},
     ]
   end
   

@@ -3,21 +3,21 @@ meta:
   version: v2.0.0
   lang: fr
 content:
-  title: CV | Robert Dober | Lead Full Stack
-  name: Robert Dober
-  role: Lead Full Stack
+  title: Robert Dober 
+  subtitle: Lead Dev Full Stack | Ruby On Rails
   profile:
-    - "> 10 années Ruby On Rails"
-    - "> 30 années developpeur"
-    - ">  4 années Lead"
-    - "> 10 années DevOps"
+    - "4 années Lead"
+    - "13 années Ruby"
+    - "30 années Dev"
+    - "10 années DevOps"
   data:
+    age: "57 ans"
     dob: 1962-01-22
-    age: 57 ans
-    status: marrié
-    nat: Autrichienne
     mail: robert.dober@gmail.com
-    www: https://github.com/RobertDober
+    nat: Autrichienne
+    phone: +33 6 50 60 79 31
+    status: marrié
+    www: github.com/RobertDober
   experiences:
     - employer: Siemens Autriche
       challenges: Responsable du fonctionnement d'une ferme de serveurs de test | Encadrement de 2 ingénieurs
@@ -68,7 +68,7 @@ content:
         Connection EM ↔ RabbitMQ |
         Clonage de schemata Postgres avec Stored Procedures | Administration d'import par serveurs externes dans l'IHM |
         Conception d'un IHM & API pour gestion de robots de cuisine (API consommé par les robots, IHM avec FO & BO) |
-        Préparation de l'import des données par sources heterogénes |
+        Préparation de l'import des données par sources heterogénes | SEO |
         Co-Encadrement de 5 ingenieurs
       job_title: Développeur Lead Full Stack 
       period: 2016 - 2019

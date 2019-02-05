@@ -43,3 +43,16 @@ p {
   font-size: 14pt;
   font-weight: 400;
 }
+
+.profile {
+  margin-left: 100px;
+  font-size: 13pt;
+}
+.title {
+  font-size: 18pt;
+  font-weight: 800;
+}
+.subtitle {
+  font-size: 16pt;
+  font-weight: 400;
+}
