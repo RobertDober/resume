@@ -1,7 +1,4 @@
 /* This file is for your main application css. */
 
-/* @import "./phoenix.css"; */
-@import "./resume.css";
 @import "./print.css";
-/* @import "./spectre.min.css"; */
-@import "./materialize.min.css";
+@import "./resume.css";

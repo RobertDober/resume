@@ -1,25 +1,16 @@
-<div class="col m8 header-left">
+<div class="header-left">
 
   <%= @composer.get(@cv, ~w{content title}) |> @composer.render(:p, class: "title") %>
   <%= @composer.get(@cv, ~w{content subtitle}) |> @composer.render(:p, class: "subtitle") %>
   
-  <ul class="left-header">
+  <ul class="header-left">
     <%= @composer.get(@cv, ~w{content profile}) |> @composer.render(:li, class: "profile") %>
   </ul>
 </div>
-<div class="col m4 header-right">
-  <ul class="right-header">
-    <li>
-      <i class="fas fa-envelope"></i>
-      <%= " #{@composer.get(@cv, "content.data.mail")}" |>  @composer.render() %>
-    </li>
-    <li>
-      <i class="fas fa-mobile-alt"></i>
-      <%= " #{@composer.get(@cv, "content.data.phone")}" |>  @composer.render() %>
-    </li>
-    <li>
-      <i class="fas fa-globe-europe"></i>
-      <%= " #{@composer.get(@cv, "content.data.www")}" |>  @composer.render() %>
-    </li>
+<div class="header-right">
+  <ul class="header-right">
+    <%= " #{@composer.get(@cv, "content.data.mail")}" |>  @composer.render(:li, class: "email") %>
+    <%= " #{@composer.get(@cv, "content.data.phone")}" |>  @composer.render(:li, class: "phone") %>
+    <%= " #{@composer.get(@cv, "content.data.www")}" |>  @composer.render(:li, class: "web") %>
   </ul>
 </div>

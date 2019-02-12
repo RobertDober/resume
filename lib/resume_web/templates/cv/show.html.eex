@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row header">
+  <div class="header">
     <%= render "header.html", composer: @composer, cv: @cv %>
   </div>
   <div class="section">
