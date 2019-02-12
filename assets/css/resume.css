@@ -1,12 +1,32 @@
+/* Base Setup */
+a {
+  text-decoration: none;
+  font-color: red;
+  color: red;
+}
+
 body {
   font-family:'Helvetica', 'Arial', sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* Classes */
+.employer {
+  font-size: 14pt;
+  font-weight: bold;
 }
 .header {
   display: flex;
   justify-content: space-around;
   height: auto;
 }
-
 
 .header-left {
   display: flex;
@@ -19,40 +39,43 @@ body {
   flex-flow: column nowrap;
   justify-content: flex-start;
 }
-.profile {
-  display: flex;
-}
-ul {
-  list-style-type: none;
-}
 
-a {
-  text-decoration: none;
-  font-color: red;
-  color: red;
-}
-p {
-  margin: 0;
+.job-title {
+  font-size: 14pt;
+  font-weight: 600;
 }
 
 .name {
   font-size: 16pt;
   font-weight: 800;
 }
+
+.period {
+  font-size: 13pt;
+  font-weight: 400;
+  text-align: right;
+}
+.profile {
+  display: flex;
+  margin-left: 100px;
+  font-size: 13pt;
+}
+.row {
+  margin-top: 0;
+  margin-bottom: -10px;
+}
+
 .status {
   font-size: 14pt;
   font-weight: 400;
 }
 
-.profile {
-  margin-left: 100px;
-  font-size: 13pt;
-}
-.title {
-  font-size: 18pt;
-  font-weight: 800;
-}
 .subtitle {
   font-size: 16pt;
   font-weight: 400;
+}
+
+.title {
+  font-size: 18pt;
+  font-weight: 800;
 }

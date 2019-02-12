@@ -1,0 +1,8 @@
+@media print {
+
+  .period {
+    font-size: 11pt;
+    font-weight: 400;
+    text-align: right;
+  }
+}

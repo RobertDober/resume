@@ -1,56 +1,13 @@
 <div class="container">
   <div class="row header">
-    <div class="col s9 header-left">
-
-      <%= @composer.get(@cv, ~w{content title}) |> @composer.render(:p, class: "title") %>
-      <%= @composer.get(@cv, ~w{content subtitle}) |> @composer.render(:p, class: "subtitle") %>
-      
-      <ul class="left-header">
-        <%= @composer.get(@cv, ~w{content profile}) |> @composer.render(:li, class: "profile") %>
-      </ul>
-    </div>
-    <div class="col s3 header-right">
-      <ul class="right-header">
-        <li>
-          <i class="fas fa-envelope"></i>
-          <%= " #{@composer.get(@cv, "content.data.mail")}" |>  @composer.render() %>
-        </li>
-        <li>
-          <i class="fas fa-mobile-alt"></i>
-          <%= " #{@composer.get(@cv, "content.data.phone")}" |>  @composer.render() %>
-        </li>
-        <li>
-          <i class="fas fa-globe-europe"></i>
-          <%= " #{@composer.get(@cv, "content.data.www")}" |>  @composer.render() %>
-        </li>
-      </ul>
-
-      <%# <%= for datum <- @composer.get_many(@cv, ~w{content data}, ~w{mail www age}, :p ) do %1> %>
-      <%#     <%= datum %1> %>
-      <%# <% end %1> %>
-      <%# <%= @composer.render(@cv, "header_right.md") %1> %>
-      <p>
-      <%# <%= @composer.get(@cv, "content.data.mail") |> @composer.render(:p) %1> %>
-      </p>
-      <%# <%= @composer.get_many(@cv, "content.data", ~w{mail www phone}, :p) %1> %> 
-      
-    </div>
-  </div>
-  <div class="divider">
-  </div>
-  <div class="section">
-    <%# <%= @composer.render(@cv, "profile.md") %1> %> 
-  </div>
-  <div class="divider">
+    <%= render "header.html", composer: @composer, cv: @cv %>
   </div>
   <div class="section">
     <h4>Experiences</h4>
-    <div class="row head5">
-      <div class="col s9">Siemens Autriche</div>
-      <div class="col s3">1986 - 2000</div>
-    </div>
-    <%# <%= for experience <- @composer.wildcard( @cv, "experiences/*.md") do %1> %>
-    <%#   <%= @composer.render_abs(@cv, experience) %1> %>
-    <%# <%= end %1> %>
+    <%= render "experiences.html", composer: @composer, data: @composer.get(@cv, "content.experiences") %>
+  </div>
+  <div class="section">
+    <h4><%= @composer.gets(@cv, "content.open_source.name") %></h4>
+    <%= render "open_source.html", composer: @composer, projects: @composer.get(@cv, "content.open_source.projects") %>
   </div>
 </div>

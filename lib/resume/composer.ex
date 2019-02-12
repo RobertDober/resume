@@ -7,6 +7,14 @@ defmodule Resume.Composer do
     |>  Enum.reduce(cv, fn key, current -> Map.fetch!(current, key) end)
   end
 
+  def gets(cv, keys) do
+     case get(cv, keys) do
+      nil -> raise "ERROR FetchKey returned nil #{inspect @cv} <- #{inspect keys}"
+      value when is_list(value) or is_map(value) -> raise "ERROR `gets` can only access scalar values, not #{inspect value}" 
+      t   -> to_string(t)
+    end
+  end
+
   def only(map, keys) do
     keys
     |> Enum.reduce([], fn k, r -> [Map.fetch!(map, k) | r] end)

@@ -1,0 +1,5 @@
+<%= for project <- @projects do %>
+    <div class="project row">
+      <%= @composer.gets(project, "name") |> @composer.render(:div, class: "col s8") %>
+      <%= @composer.gets(project, "url") |> @composer.render(:div, class: "col s4") %>
+<% end %>
