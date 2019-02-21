@@ -5,7 +5,8 @@ function main {
     local version="$2"
     local dir=cvs/$lang/$version
     local config=$dir/config.yml
-    mkdir -p $dir/fragments
+    mkdir -p $dir
+    sed -e "s/<lang>/$lang/" -e "s/<version>/$version/" cvs/templates/cv-template.yml > $dir/cv.yml
     echo "name: Robert Dober" > $config
     echo "lang: $lang" >> $config
     echo "version: \"$version\"" >> $config

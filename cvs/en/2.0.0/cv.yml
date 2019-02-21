@@ -1,0 +1,33 @@
+content:
+  data:
+    age: ... 
+    dob: 1962-01-22
+    mail: robert.dober@gmail.com
+    nat: Autrichienne
+    phone: +33 6 50 60 79 31
+    status: marrié
+    www: github.com/RobertDober
+  experiences:
+    - employer: ...
+      challenges: ...
+      job_title: ...
+      period: ...
+      tech: ...
+  open_source:
+    name: "Contributions Open Source"
+    projects:
+      - name: Earmark
+        period: "2015 - ‥."
+        role: Maintainer
+        url: "https://github.com/pragdave/earmark"
+  subtitle: Lead Dev Full Stack | Ruby On Rails
+  title: Robert Dober 
+  profile:
+    - "4 années Lead"
+    - "13 années Ruby"
+    - "30 années Dev"
+    - "10 années DevOps"
+meta:
+  name: "Robert Dober"
+  version: 2.0.0
+  lang: en

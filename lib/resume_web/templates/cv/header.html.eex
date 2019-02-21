@@ -9,8 +9,6 @@
 </div>
 <div class="header-right">
   <ul class="header-right">
-    <%= " #{@composer.get(@cv, "content.data.mail")}" |>  @composer.render(:li, class: "email") %>
-    <%= " #{@composer.get(@cv, "content.data.phone")}" |>  @composer.render(:li, class: "phone") %>
-    <%= " #{@composer.get(@cv, "content.data.www")}" |>  @composer.render(:li, class: "web") %>
+    <%= @composer.get(@cv, "content.data") |> @composer.pairs(~w{email phone www}) |> @composer.render_pairs(:li, class: "%1") %>
   </ul>
 </div>

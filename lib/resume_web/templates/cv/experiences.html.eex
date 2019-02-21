@@ -1,14 +1,6 @@
+<%= @composer.gets(@cv, "presentation.titles.experiences") |> @composer.render(:h4) %>
 <%= for experience <- Enum.reverse(@data) do %>
-    <div class="experience-title row">
-      <%= @composer.gets(experience, "job_title") |> @composer.render(:div, class: "job-title col s8") %>
-      <div class="period col s4">
-        <%= @composer.gets(experience, "employer") |> @composer.render() %>
-        <%= @composer.gets(experience, "period") |> @composer.render() %>
-      </div>
-    </div>
-    <div class="experience-desc row">
-      <div class="col s12">
-        <%= @composer.gets(experience, "challenges") |> @composer.render() %>
-      </div>
-    </div>
+  <div class="experience">
+    <%= render "experience.html", composer: @composer, experience: experience %>
+  </div>
 <% end %>

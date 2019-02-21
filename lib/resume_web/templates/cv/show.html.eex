@@ -2,12 +2,42 @@
   <div class="header">
     <%= render "header.html", composer: @composer, cv: @cv %>
   </div>
+
   <div class="section">
-    <h4>Experiences</h4>
-    <%= render "experiences.html", composer: @composer, data: @composer.get(@cv, "content.experiences") %>
+    <a name="experiences"></a>
+    <div class="experiences">
+      <%= render "experiences.html", composer: @composer, cv: @cv, data: @composer.get(@cv, "content.experiences") %>
+    </div>
+  </div>
+
+  <div class="section">
+    <a name="open-source"></a>
+    <h4><%= @composer.gets(@cv, "content.open_source.name") %></h4>
+    <div class="open-source">
+      <%= render "open_source.html", composer: @composer, projects: @composer.get(@cv, "content.open_source.projects") %>
+    </div>
+  </div>
+
+  <div class="section">
+    <a name="education"></a>
+    <h4><%= @composer.gets(@cv, "content.education.name") %></h4>
+    <div class="education">
+      <%= render "education.html", composer: @composer, education: @composer.get(@cv, "content.education") %>
+    </div>
   </div>
   <div class="section">
-    <h4><%= @composer.gets(@cv, "content.open_source.name") %></h4>
-    <%= render "open_source.html", composer: @composer, projects: @composer.get(@cv, "content.open_source.projects") %>
+    <a name="languages"></a>
+    <h4><%= @composer.gets(@cv, "content.languages.name") %></h4>
+    <div class="languages">
+      <%= @composer.get(@cv, "content.languages.tag_cloud") |> @composer.render_tag_cloud %>
+    </div>
+  </div>
+
+  <div class="section">
+    <a name="geekometer"></a>
+    <h4><%= @composer.gets(@cv, "content.geekometer.name") %></h4>
+    <div class="geekometer">
+      <%= @composer.get(@cv, "content.geekometer.tag_cloud") |> @composer.render_tag_cloud %>
+    </div>
   </div>
 </div>

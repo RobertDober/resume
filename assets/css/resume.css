@@ -1,13 +1,19 @@
 /* Base Setup */
 a {
   text-decoration: none;
-  font-color: red;
   color: red;
 }
 
 body {
+  color: black;
   font-family:'Helvetica', 'Arial', sans-serif;
   font-size: 12pt;
+}
+
+h4 {
+  font-size: 20pt;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 p {
@@ -18,6 +24,39 @@ ul {
   list-style-type: none;
 }
 
+.education-institute {
+  display: inline-block;
+  font-weight: bold;
+}
+.education-period {
+  display: inline-block;
+  font-size: 14pt;
+  font-weight: bold;
+}
+.education-title {
+  display: inline-block;
+  float: right;
+  font-size: 14pt;
+  font-weight: bold;
+}
+.education-major {
+  display: inline-block;
+  float: right;
+}
+.experience-desc {
+  margin: 0 0 15px 0;
+}
+
+.geekometer {
+  font-family: Arial Narrow;
+  margin: 0 0 0 2rem;
+  text-align: center;
+  width: 80%;
+}
+.geekometer span {
+  margin: 0 5px 0 5px;
+}
+
 .header, .section {
   display: block;
 }
@@ -25,11 +64,50 @@ ul {
   display: inline-block;
   /* padding: 10px 0 0 30px; */
 }
-
 .header-right {
   display: inline-block;
   float: right;
   /* padding: 0 30px 0 0; */
+}
+
+.languages {
+  margin: 0 0 0 2rem;
+}
+
+.job-title {
+  display: inline-block;
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+.oss-name {
+  display: inline-block;
+  font-size: 14pt;
+  font-weight: bold;
+}
+.oss-period {
+  display: inline-block;
+  float: right;
+  font-weight: bold;
+}
+.oss-project-title {
+  margin-top: 1rem;
+}
+.oss-role {
+  clear: top;
+  display: inline-block;
+  font-style: italic;
+}
+.oss-url {
+  display: inline-block;
+  float: right;
+}
+
+.period {
+  display: inline-block;
+  float: right;
+  font-size: 16pt;
+  font-weight: bold;
 }
 
 .profile {
@@ -49,7 +127,7 @@ li.profile:before {
   content: "\27a4 ";
   /* content: "\1f600 "; */
 }
-li.web:before {
+li.www:before {
   content: "\1f310 ";
   font-size: 10pt;
   /* content: "\1f600 "; */

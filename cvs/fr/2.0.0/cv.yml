@@ -2,11 +2,17 @@ content:
   data:
     age: "57 ans"
     dob: 1962-01-22
-    mail: robert.dober@gmail.com
+    email: robert.dober@gmail.com
     nat: Autrichienne
     phone: +33 6 50 60 79 31
     status: marrié
     www: github.com/RobertDober
+  education:
+    institute: Université Technique de Vienne
+    major: "Construction de Compilateurs"
+    name: Éducation
+    period: "1980 - 1987"
+    title: Ingénieur en Génie du Logiciel
   experiences:
     - employer: Siemens AG
       challenges: Développeur Système, Administrateur système, bdd & réseaux
@@ -22,7 +28,7 @@ content:
       challenges: support du Lead dans modélisation, implémentation et test de fonctionnalités d'un réseau social coopératif
       job_title: Dév Web Full Stack
       period: 2009 - 2010
-      tech: Ruby On Rails | JQuery 
+      tech: Ruby On Rails | JQuery
     - employer: Init-Sys
       challenges: IHM classique | connexion FE avec serveurs par AMQ
       job_title: Dév Web Backend
@@ -34,7 +40,7 @@ content:
       period: 2011
       tech: Ruby On Rails | Prototype.js | JQuery
     - employer: Up & Net
-      challenges: Requêtes customisés MySQL pour exécution remote avec dRuby par un IHM Rails | Intégration Google Maps | Rails App classique 
+      challenges: Requêtes customisés MySQL pour exécution remote avec dRuby par un IHM Rails | Intégration Google Maps | Rails App classique
       job_title: Dév Web Full Stack
       period: 2011 - 2013
       tech: Ruby On Rails | dRuby (MRI ↔ jRuby, Linux ↔ Windows) | CoffeeScript | Google APIs | Websockets | PHP
@@ -50,7 +56,7 @@ content:
       tech: Ruby On Rails
     - employer: Facilcom
       challenges: Extension d'un système de gestion d'e-commerce | support du CTO changement d'architecture | Gem pour la gestion Redis sur Heroku
-      job_title: Dév Full Stack 
+      job_title: Dév Full Stack
       period: 2016
       tech: Ruby On Rails | Ember.js | Heroku | Redis | Sidekiq | RSpec
     - employer: AF83
@@ -60,22 +66,54 @@ content:
         Conception d'un IHM & API pour gestion de robots de cuisine (API consommé par les robots, IHM avec FO & BO) |
         Préparation de l'import des données par sources heterogénes | SEO |
         Co-Encadrement de 5 ingenieurs
-      job_title: Lead Full Stack 
+      job_title: Lead Full Stack
       period: 2016 - 2019
       tech: Ruby On Rails | Eventmachine | RabbitMQ | Redis | Postgres | SemanticUI | MongoDB | Sidekiq | RSpec
+  geekometer:
+    name: Geekometer
+    tag_cloud: cvs/tag_clouds/webdev_cloud.txt
+  languages:
+    name: Langues
+    tag_cloud:
+      - color: 12
+        item: Français,
+        size: 15
+        weight: 800
+      - color: 12
+        item: Anglais,
+        size: 15
+        weight: 800
+      - color: 12
+        item: Allemand,
+        size: 15
+        weight: 800
+      - color: 8 
+        item: Italien,
+        size: 13
+        weight: 600
+      - color: 6
+        item: Espagnol
+        size: 9
+        weight: 100
   open_source:
     name: "Contributions Open Source"
     projects:
-      - name: Earmark
+      - description: Converteur Markdown → HTML au cœur du système de documentation du code en <i>Elixir</i>
+        name: Earmark
         period: "2015 - ‥."
         role: Maintainer
         url: "https://github.com/pragdave/earmark"
-      - name: Librairies en Ruby et Elixir
+      - name: Outils pour Elixir
+        period: "2016 - ‥."
+        role: Owner
+        url: "https://github.com/RobertDober"
+      - description: Streams, Memoization & autre outils, surtout pour la programmation fonctionnelle en Ruby
+        name: Lab42
         period: "2008 - ‥."
         role: Owner
         url: "https://github.com/RobertDober"
   subtitle: Lead Dev Full Stack | Ruby On Rails
-  title: Robert Dober 
+  title: Robert Dober
   profile:
     - "4 années Lead"
     - "13 années Ruby"
@@ -85,3 +123,6 @@ meta:
   name: "Robert Dober"
   version: v2.0.0
   lang: fr
+presentation:
+  titles:
+    experiences: Experiences
