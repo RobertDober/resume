@@ -1,0 +1,6 @@
+<div class="education-header">
+  <%= @composer.pairs(@education, ~w{period title}) |> @composer.render_pairs(:div, class: "education-%1") %>
+</div>
+<div class="education-footer">
+  <%= @composer.pairs(@education, ~w{institute major}) |> @composer.render_pairs(:div, class: "education-%1") %>
+</div>

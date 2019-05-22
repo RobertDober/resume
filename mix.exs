@@ -43,6 +43,8 @@ defmodule Resume.MixProject do
       {:yaml_elixir, "~> 2.1"},
       {:earmark_tag_cloud, "~> 0.1"},
       {:slime, "~> 1.2"},
+
+      {:ex_doc, "~>0.20.2"},
     ]
   end
 end

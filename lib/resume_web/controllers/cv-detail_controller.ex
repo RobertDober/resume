@@ -1,4 +1,4 @@
-defmodule ResumeWeb.CvController do
+defmodule ResumeWeb.CvDetailController do
   use ResumeWeb, :controller
   alias Resume.Cvs
 
@@ -12,12 +12,5 @@ defmodule ResumeWeb.CvController do
     # |> put_layout(false)
     |> render("show.html", composer: Resume.Composer, cv: yaml )
   end
-
-  def template(conn, %{"lang" => lang, "version" => version, "template" => template}) do
-    yaml = Cvs.yaml(lang, version) |> hd()
-    conn
-    |> render("#{template}.html", composer: Resume.Composer, cv: yaml )
-  end
-
   
 end

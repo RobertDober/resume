@@ -54,9 +54,9 @@ content:
       job_title: Lead Dév BE
       period: 2014 - 2015
       tech: Ruby On Rails
-    - employer: Facilcom
+    - employer: Facilecomm
       challenges: Extension d'un système de gestion d'e-commerce | support du CTO changement d'architecture | Gem pour la gestion Redis sur Heroku
-      job_title: Dév Full Stack
+      job_title: Dév Full Stack (Rails 4, Ember 2)
       period: 2016
       tech: Ruby On Rails | Ember.js | Heroku | Redis | Sidekiq | RSpec
     - employer: AF83
@@ -65,8 +65,8 @@ content:
         Clonage de schemata Postgres avec Stored Procedures | Administration d'import par serveurs externes dans l'IHM |
         Conception d'un IHM & API pour gestion de robots de cuisine (API consommé par les robots, IHM avec FO & BO) |
         Préparation de l'import des données par sources heterogénes | SEO |
-        Co-Encadrement de 5 ingenieurs
-      job_title: Lead Full Stack
+        Encadrement de 5 ingenieurs
+      job_title: Lead Full Stack (Rails 5, React)
       period: 2016 - 2019
       tech: Ruby On Rails | Eventmachine | RabbitMQ | Redis | Postgres | SemanticUI | MongoDB | Sidekiq | RSpec
   geekometer:

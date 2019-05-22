@@ -18,6 +18,7 @@ defmodule ResumeWeb.Router do
 
     get "/", CvController, :index
     get "/cvs/:lang/:version", CvController, :show
+    get "/custom/:lang/:version/:template", CvController, :template
   end
 
   # Other scopes may use custom stacks.

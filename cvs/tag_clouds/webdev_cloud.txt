@@ -32,6 +32,7 @@ haml/slim 14 100 9
 Webservices/APIs 20 600 8
 Postgres 22 800 12
 Heroku 16 800 10
+Jenkins 12 400 12
 HTTP 10 800 12
 MySQL 16 400 6
 Python 19 800 #44ff44

@@ -1,0 +1,32 @@
+<h2>Available CVs</h2>
+
+<section class="container">
+
+  <table>
+    <thead>
+      <td>Title</th>
+      <td>Version</th>
+      <td>Lang</th>
+      <td>Show</th>
+      </th>
+    </thead>
+    <tbody>
+      <%= for cv <- @cvs do %>
+        <tr>
+          <td>
+            <%= cv.title %>
+          </td>
+          <td>
+            <%= cv.version %> 
+          </td>
+          <td>
+            <%= cv.lang %>
+          </td>
+          <td>
+            <%= link "Show", to: Routes.cv_path(@conn, :show, cv.lang, cv.version) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
