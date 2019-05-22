@@ -1,5 +1,0 @@
-header-left:
-  name:
-    Robert Dober
-  description:
-    Développeur Lead Full Stack
