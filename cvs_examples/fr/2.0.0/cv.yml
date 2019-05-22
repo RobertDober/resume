@@ -1,0 +1,128 @@
+content:
+  data:
+    age: "XXans"
+    dob: 1999-01-22
+    email: who@knows.where
+    nat: Térrienne
+    phone: +33 6 66 66 66 66
+    status: marrié
+    www: github.com/RobertDober
+  education:
+    institute: Université Technique de Vienne
+    major: "Construction de Compilateurs"
+    name: Éducation
+    period: "1980 - 1987"
+    title: Ingénieur en Génie du Logiciel
+  experiences:
+    - employer: Siemens AG
+      challenges: Développeur Système, Administrateur système, bdd & réseaux
+      job_title: Dév, Admin Réseau & Systèmes
+      period: 1986 - 2000
+      tech: Ada, C, Informix, shell, Unix V, Linux, Solaris, TCP/IP
+    - employer: Siemens S.A.S
+      challenges: Responsable du fonctionnement d'une ferme de serveurs de test | Encadrement de 2 ingénieurs
+      job_title: Dév Sénior, Admin Réseau & Systèmes
+      period: 2001 - 2008
+      tech: Ruby, Python, Javascript
+    - employer: Uneek
+      challenges: support du Lead dans modélisation, implémentation et test de fonctionnalités d'un réseau social coopératif
+      job_title: Dév Web Full Stack
+      period: 2009 - 2010
+      tech: Ruby On Rails | JQuery
+    - employer: Init-Sys
+      challenges: IHM classique | connexion FE avec serveurs par AMQ
+      job_title: Dév Web Backend
+      period: 2010
+      tech: Ruby On Rails | AMQ
+    - employer: Figaro Classifieds
+      challenges: CMS propriétaire | extension des modules (Twitter, RSS) | portage et extension BO (Prototype -> JQuery)
+      job_title: Dév Sénior Web Full Stack
+      period: 2011
+      tech: Ruby On Rails | Prototype.js | JQuery
+    - employer: Up & Net
+      challenges: Requêtes customisés MySQL pour exécution remote avec dRuby par un IHM Rails | Intégration Google Maps | Rails App classique
+      job_title: Dév Web Full Stack
+      period: 2011 - 2013
+      tech: Ruby On Rails | dRuby (MRI ↔ jRuby, Linux ↔ Windows) | CoffeeScript | Google APIs | Websockets | PHP
+    - employer: Æglé
+      challenges: Portage d'un progiciel architecture Client & Server → Webapp
+      job_title: Dév Sénior Full Stack
+      period: 2013 - 2014
+      tech: Python & Flask | Ruby & Sinatra | Scala & Play | PHP & Silex | Informix | Backbone.js | sinon, chai | Lettuce
+    - employer: Pixagility
+      challenges: Portage d'un legacy système Ror vers une SOA | Encadrement de 2 ingénieurs
+      job_title: Lead Dév BE
+      period: 2014 - 2015
+      tech: Ruby On Rails
+    - employer: Facilecomm
+      challenges: Extension d'un système de gestion d'e-commerce | support du CTO changement d'architecture | Gem pour la gestion Redis sur Heroku
+      job_title: Dév Full Stack (Rails 4, Ember 2)
+      period: 2016
+      tech: Ruby On Rails | Ember.js | Heroku | Redis | Sidekiq | RSpec
+    - employer: AF83
+      challenges: >
+        Connection EM ↔ RabbitMQ |
+        Clonage de schemata Postgres avec Stored Procedures | Administration d'import par serveurs externes dans l'IHM |
+        Conception d'un IHM & API pour gestion de robots de cuisine (API consommé par les robots, IHM avec FO & BO) |
+        Préparation de l'import des données par sources heterogénes | SEO |
+        Encadrement de 5 ingenieurs
+      job_title: Lead Full Stack (Rails 5, React)
+      period: 2016 - 2019
+      tech: Ruby On Rails | Eventmachine | RabbitMQ | Redis | Postgres | SemanticUI | MongoDB | Sidekiq | RSpec
+  geekometer:
+    name: Geekometer
+    tag_cloud: cvs/tag_clouds/webdev_cloud.txt
+  languages:
+    name: Langues
+    tag_cloud:
+      - color: 12
+        item: Français,
+        size: 15
+        weight: 800
+      - color: 12
+        item: Anglais,
+        size: 15
+        weight: 800
+      - color: 12
+        item: Allemand,
+        size: 15
+        weight: 800
+      - color: 8 
+        item: Italien,
+        size: 13
+        weight: 600
+      - color: 6
+        item: Espagnol
+        size: 9
+        weight: 100
+  open_source:
+    name: "Contributions Open Source"
+    projects:
+      - description: Converteur Markdown → HTML au cœur du système de documentation du code en <i>Elixir</i>
+        name: Earmark
+        period: "2015 - ‥."
+        role: Maintainer
+        url: "https://github.com/pragdave/earmark"
+      - name: Outils pour Elixir
+        period: "2016 - ‥."
+        role: Owner
+        url: "https://github.com/RobertDober"
+      - description: Streams, Memoization & autre outils, surtout pour la programmation fonctionnelle en Ruby
+        name: Lab42
+        period: "2008 - ‥."
+        role: Owner
+        url: "https://github.com/RobertDober"
+  subtitle: Lead Dev Full Stack | Ruby On Rails
+  title: Robert Dober
+  profile:
+    - "4 années Lead"
+    - "13 années Ruby"
+    - "30 années Dev"
+    - "10 années DevOps"
+meta:
+  name: "Robert Dober"
+  version: v2.0.0
+  lang: fr
+presentation:
+  titles:
+    experiences: Experiences
