@@ -3,7 +3,7 @@
       <%= @composer.pairs(project, ~w{name period}) |> @composer.render_pairs(:div, class: "oss-%1") %>
     </div>
     <div class="oss-project-desc">
-      <%= @composer.pairs(project, ~w{role url}) |> @composer.render_pairs(:div, class: "oss-%1") %>
+      <%= @composer.pairs(project, ~w{role url}) |> Resume.Tools.make_links_for("url") |> @composer.render_pairs(:div, class: "oss-%1") %>
     </div>
     <% description = @composer.get(project, "description", nil) %>
     <%= if description do %>

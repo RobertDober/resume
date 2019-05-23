@@ -1,7 +1,7 @@
 /* Base Setup */
 a {
   text-decoration: none;
-  color: red;
+  color: blue;
 }
 
 body {
@@ -22,6 +22,12 @@ p {
 
 ul {
   list-style-type: none;
+}
+
+.container {
+    position: relative;
+    width: 210mm;
+    height: 594mm;
 }
 
 .education-institute {
@@ -140,4 +146,10 @@ li.www:before {
 .title {
   font-size: 20pt;
   font-weight: bold;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
