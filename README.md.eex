@@ -1,0 +1,13 @@
+<%= xtra.do_not_edit_warning %>
+
+# Resumé
+
+<%= xtra.moduledoc("Resume") %>
+
+# LICENSE
+
+Copyright © 2019 Robert Dober, robert<DOT>dober<AT>gmail
+
+Same as Elixir, which is Apache License v2.0. Please refer to [LICENSE](LICENSE) for details.
+
+SPDX-License-Identifier: Apache-2.0

@@ -44,7 +44,8 @@ defmodule Resume.MixProject do
       {:earmark_tag_cloud, "~> 0.1"},
       {:slime, "~> 1.2"},
 
-      {:ex_doc, "~>0.20.2"},
+      {:ex_doc, "~>0.20.2", only: :dev},
+      {:extractly, "~>0.1.3", only: :dev},
     ]
   end
 end
