@@ -14,59 +14,74 @@ content:
     period: "1980 - 1987"
     title: Ingénieur en Génie du Logiciel
   experiences:
-    - employer: Siemens AG
-      challenges: Développeur Système, Administrateur système, bdd & réseaux
+    - employer: Siemens Autriche & France
+      challenges:
+        - Développeur Système, Administrateur Système, BdD & Réseaux
+        - Responsable du fonctionnement d'une ferme de serveurs de test | Encadrement de 2 ingénieurs
       job_title: Dév, Admin Réseau & Systèmes
-      period: 1986 - 2000
+      period: 1986 - 2008
       tech: Ada, C, Informix, shell, Unix V, Linux, Solaris, TCP/IP
-    - employer: Siemens S.A.S
-      challenges: Responsable du fonctionnement d'une ferme de serveurs de test | Encadrement de 2 ingénieurs
       job_title: Dév Sénior, Admin Réseau & Systèmes
       period: 2001 - 2008
       tech: Ruby, Python, Javascript
     - employer: Uneek
-      challenges: support du Lead dans modélisation, implémentation et test de fonctionnalités d'un réseau social coopératif
+      challenges:
+        - support du Lead dans modélisation, implémentation et test de fonctionnalités d'un réseau social coopératif
+        - Editeur de rôles en **jQuery**
       job_title: Dév Web Full Stack
       period: 2009 - 2010
       tech: Ruby On Rails | JQuery
     - employer: Init-Sys
-      challenges: IHM classique | connexion FE avec serveurs par AMQ
+      challenges: IHM classique, basé sur Rails2 | Connexion du modèle avec des sources externes par **AMQ**
       job_title: Dév Web Backend
       period: 2010
       tech: Ruby On Rails | AMQ
     - employer: Figaro Classifieds
-      challenges: CMS propriétaire | extension des modules (Twitter, RSS) | portage et extension BO (Prototype -> JQuery)
+      challenges: CMS propriétaire | extension des modules (**Twitter**, **RSS**) | portage et extension BO (**Prototype** -> **jQuery**)
       job_title: Dév Sénior Web Full Stack
       period: 2011
-      tech: Ruby On Rails | Prototype.js | JQuery
+      tech: Ruby On Rails | **Prototype.js** | **JQuery**
     - employer: Up & Net
-      challenges: Requêtes customisés MySQL pour exécution remote avec dRuby par un IHM Rails | Intégration Google Maps | Rails App classique
+      challenges:
+        - "Requêtes customisés **MySQL** par IHM Rails avec supervision en temps réel, **Websockets**"
+        - "échange avec **dRuby** avec app **jRuby** pour BdD access avec **JDBC**"
+        - Intégration **Google Maps** avec **jQueryUI**
+        - Rails App classique
       job_title: Dév Web Full Stack
       period: 2011 - 2013
       tech: Ruby On Rails | dRuby (MRI ↔ jRuby, Linux ↔ Windows) | CoffeeScript | Google APIs | Websockets | PHP
     - employer: Æglé
-      challenges: Portage d'un progiciel architecture Client & Server → Webapp
+      challenges:
+        - Portage d'un progiciel architecture Client & Server → Webapp
+        - Legacy DB **Informix**
+        - Prototypes en **Scala**, **PHP**, **Ruby** & **Python**
+        - Iteration 0 avec **Flask**, **Lettuce**, **nginx**, **gunicorn**, **Backbone.js**, **jQueryUI**, **sinon**, **chai**
       job_title: Dév Sénior Full Stack
       period: 2013 - 2014
       tech: Python & Flask | Ruby & Sinatra | Scala & Play | PHP & Silex | Informix | Backbone.js | sinon, chai | Lettuce
     - employer: Pixagility
-      challenges: Portage d'un legacy système Ror vers une SOA | Encadrement de 2 ingénieurs
+      challenges: Portage d'un legacy système Ror vers une **SOA** | **Encadrement** de 2 ingénieurs
       job_title: Lead Dév BE
       period: 2014 - 2015
       tech: Ruby On Rails
     - employer: Facilecomm
-      challenges: Extension d'un système de gestion d'e-commerce | support du CTO changement d'architecture | Gem pour la gestion Redis sur Heroku
-      job_title: Dév Full Stack (Rails 4, Ember 2)
+      challenges:
+        - Extension d'un système de gestion d'e-commerce **Rails 4** et **Ember 2**
+        - support du CTO changement **SOA**
+        - Gem pour la optimisation du plan **Redis** sur **Heroku**
+      job_title: Dév Full Stack
       period: 2016
       tech: Ruby On Rails | Ember.js | Heroku | Redis | Sidekiq | RSpec
     - employer: AF83
-      challenges: >
-        Connection EM ↔ RabbitMQ |
-        Clonage de schemata Postgres avec Stored Procedures | Administration d'import par serveurs externes dans l'IHM |
-        Conception d'un IHM & API pour gestion de robots de cuisine (API consommé par les robots, IHM avec FO & BO) |
-        Préparation de l'import des données par sources heterogénes | SEO |
-        Encadrement de 5 ingenieurs
-      job_title: Lead Full Stack (Rails 5, React)
+      challenges:
+        - "**EventMachine** ↔ **RabbitMQ** "
+        - "Clonage de schemata **Postgres** avec Stored Procedures "
+        - "Migration d'une app complexe **Rails 4** → **Rails 5**"
+        - "Conception d'un IHM & **API** **Rails 5** pour gestion de robots de cuisine (API consommé par les robots, IHM avec FO & BO) "
+        - "Unification et import des données **MongoDB** et **Drupal** "
+        - "**SEO** "
+        - "**Encadrement** de 5 ingenieurs"
+      job_title: Lead Full Stack
       period: 2016 - 2019
       tech: Ruby On Rails | Eventmachine | RabbitMQ | Redis | Postgres | SemanticUI | MongoDB | Sidekiq | RSpec
   geekometer:
@@ -87,7 +102,7 @@ content:
         item: Allemand,
         size: 15
         weight: 800
-      - color: 8 
+      - color: 8
         item: Italien,
         size: 13
         weight: 600
@@ -98,7 +113,7 @@ content:
   open_source:
     name: "Contributions Open Source"
     projects:
-      - description: Converteur Markdown → HTML au cœur du système de documentation du code en <i>Elixir</i>
+      - description: Converteur **Markdown** → **HTML** utilisé par `ex_doc` le génerateur de documentation d'**Elixir** 
         name: Earmark
         period: "2015 - ‥."
         role: Maintainer
@@ -107,11 +122,25 @@ content:
         period: "2016 - ‥."
         role: Owner
         url: "https://github.com/RobertDober"
+        description: Earmark Plugins | Xtractly Elixir documentation avec `EEx` templates
       - description: Streams, Memoization & autre outils, surtout pour la programmation fonctionnelle en Ruby
         name: Lab42
         period: "2008 - ‥."
         role: Owner
         url: "https://github.com/RobertDober"
+  hobbies:
+    name: "Activités & Intérêts"
+    elements:
+      - description: "Membre de l'association _Montredon Education Sport Canin_"
+        activities:
+          - Co-organisation des concours
+          - Chien en formation **Chien Visiteur**
+      - description: "Autres Intérêts"
+        activities:
+          - Échecs
+          - Jazz
+          - Marche
+    description:
   subtitle: Lead Dev Full Stack | Ruby On Rails
   title: Robert Dober
   profile:

@@ -8,7 +8,7 @@
     <% description = @composer.get(project, "description", nil) %>
     <%= if description do %>
       <div class="oss-project-description">
-        <%= {:safe, description} %>
+        <%= @composer.render( description, nil, markdown: true ) %>
       </div>
     <% end %>
 <% end %>

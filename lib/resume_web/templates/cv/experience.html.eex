@@ -6,6 +6,6 @@
   </div>
 </div>
 <div class="experience-desc row">
-  <%= @composer.gets(@experience, "challenges") |> @composer.render() %>
+  <%= @composer.gets(@experience, "challenges", " | ")|> @composer.render(nil, markdown: true)  %>
 </div>
 

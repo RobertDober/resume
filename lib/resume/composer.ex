@@ -19,10 +19,11 @@ defmodule Resume.Composer do
     end
   end
 
-  def gets(cv, keys) do
+  def gets(cv, keys, joiner \\ " ") do
      case get(cv, keys) do
       nil -> raise "ERROR FetchKey returned nil #{inspect cv} <- #{inspect keys}"
-      value when is_list(value) or is_map(value) -> raise "ERROR `gets` can only access scalar values, not #{inspect value}" 
+      value when is_list(value) -> Enum.join(value, joiner)
+      value when is_map(value) -> raise "ERROR `gets` can only access scalar values, not #{inspect value}" 
       t   -> to_string(t)
     end
   end
@@ -80,8 +81,12 @@ defmodule Resume.Composer do
     with {:ok, tag} <- "#{item} #{size} #{weight} #{color}" |> EarmarkTagCloud.one_tag, do: tag
   end
 
-  defp _render(ele, nil, _) do
-    ele
+  defp _render(ele, nil, options) do
+    if Keyword.get(options, :markdown) do
+      Earmark.as_html!(ele)
+    else
+      ele
+    end
   end
   defp _render(ele, tag, options) do
     [ _option_string(tag, options), ">", ele, "</", to_string(tag), ">" ]

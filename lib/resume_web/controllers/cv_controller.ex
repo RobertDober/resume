@@ -3,14 +3,20 @@ defmodule ResumeWeb.CvController do
   alias Resume.Cvs
 
   def index(conn, _params) do
-    render(conn, "index.html", cvs: Cvs.list)
+    render(conn, "index.html", cvs: Cvs.list, title: "List of available CVs")
   end
 
   def show(conn, %{"lang" => lang, "version" => version}) do
+    config = Cvs.config(lang, version) |> hd()
+    name_for_title =
+      config
+      |> Map.get("name")
+      |> String.replace(" ", "")
+
     yaml = Cvs.yaml(lang, version) |> hd()
     conn
     # |> put_layout(false)
-    |> render("show.html", composer: Resume.Composer, cv: yaml )
+    |> render("show.html", composer: Resume.Composer, cv: yaml, title: "CV-#{name_for_title}-#{lang}-#{version}" )
   end
 
   def template(conn, %{"lang" => lang, "version" => version, "template" => template}) do

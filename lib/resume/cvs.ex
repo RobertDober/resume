@@ -4,12 +4,15 @@ defmodule Resume.Cvs do
     _configured_cvs()
   end
   
+  def config(lang, version) do
+    _yaml(lang, version, "config.yml")
+  end
   def yaml(lang, version) do
-    YamlElixir.read_all_from_file!(Path.join(["cvs", lang, version, "cv.yml"]))
+    _yaml(lang, version, "cv.yml")
   end
 
   defp _configured_cvs do
-    Path.wildcard("cvs/fr/**/config.yml") 
+    Path.wildcard("cvs/{de,en,fr,it}/**/config.yml") 
     |> Enum.map(&{&1, YamlElixir.read_from_file!(&1)
     |> Map.get("title")}) 
     |> Enum.reject(fn {_, nil} -> true; _ -> false end)
@@ -27,4 +30,7 @@ defmodule Resume.Cvs do
     %{lang: lang, version: version, title: title}
   end
   
+  defp _yaml(lang, version, file) do
+    YamlElixir.read_all_from_file!(Path.join(["cvs", lang, version, file]))
+  end
 end

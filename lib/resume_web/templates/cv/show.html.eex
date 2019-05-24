@@ -40,6 +40,14 @@
       <%= @composer.get(@cv, "content.geekometer.tag_cloud") |> @composer.render_tag_cloud %>
     </div>
   </div>
+
+  <%= if hobbies = @composer.get(@cv, "content.hobbies", nil) do %>
+    <div class="section">
+      <a name="hobbies"></a>
+      <h4><%= @composer.gets(hobbies, "name") %></h4>
+      <%= render "hobbies.html", composer: @composer, cv: @cv, data: @composer.get(hobbies, "elements") %>
+    </div>
+  <% end %>
   <footer>
   <i>Created with <a href="https://github.com/RobertDober/resume">Github: RobertDober/resume</a>
  © 2019 Robert Dober
