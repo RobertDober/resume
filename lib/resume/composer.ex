@@ -1,11 +1,37 @@
 defmodule Resume.Composer do
 
-  def get(cv, keys) when is_binary(keys), do: get(cv, String.split(keys, "."))
+  @moduledoc false
+
+  @doc """
+  Get an element of a deep map with a compound key.
+
+  Keys can be specified as arrays,
+
+        iex(0)> cv = %{ "sections" =>
+        ...(0)>   %{ "header" => %{ "name" => "Robert", "age" => 42 } },
+        ...(0)>        "title" => "my CV" }
+        ...(0)> Resume.Composer.get(cv, ~w{sections header name})
+        "Robert"
+
+  ... or as dot expressions
+
+        iex(1)> cv = %{ "sections" =>
+        ...(1)>   %{ "header" => %{ "name" => "Robert", "age" => 42 } },
+        ...(1)>        "title" => "my CV" }
+        ...(1)> Resume.Composer.get(cv, "sections.header.name")
+        "Robert"
+
+  In order to avoid unpleasentness in case of ignorable presence of the key it is
+  suggested to provide a default
+
+        iex(2)> cv = %{ "sections" =>
+        ...(2)>   %{ "header" => %{ "name" => "Robert", "age" => 42 } },
+        ...(2)>        "title" => "my CV" }
+        ...(2)> Resume.Composer.get(cv, "sections.title.name", "John Doe")
+        "John Doe"
+  """
+  def get(cv, keys, default \\ nil)
   def get(cv, keys, default) when is_binary(keys), do: get(cv, String.split(keys, "."), default)
-  def get(cv, keys) do
-    keys
-    |>  Enum.reduce(cv, fn key, current -> Map.fetch!(current, key) end)
-  end
   def get(cv, keys, default) do
     keys
     |>  Enum.reduce_while(cv, &_while_getter(default, &1, &2))
@@ -19,6 +45,34 @@ defmodule Resume.Composer do
     end
   end
 
+  @doc """
+  Like `get` above, although the precautionary `default` is not available, however,
+  to make it up the result is guranteed to be a string (well if found).
+  Either by calling `to_string`
+
+        iex(3)> cv = %{ "person" => %{ "name"  => "Robert", 
+        ...(3)>                        "age"   => 42,
+        ...(3)>                        "langs" => ~w{elixir julia haskell} } }
+        ...(3)> Resume.Composer.gets(cv, "person.age")
+        "42"
+
+  ... or by joining an Enum together
+
+        iex(4)> cv = %{ "person" => %{ "name"  => "Robert", 
+        ...(4)>                        "age"   => 42,
+        ...(4)>                        "langs" => ~w{elixir julia haskell} } }
+        ...(4)> Resume.Composer.gets(cv, ~w{person langs})
+        "elixir julia haskell" 
+
+  One can join with other things than spaces, of course:
+
+        iex(5)> cv = %{ "person" => %{ "name"  => "Robert", 
+        ...(5)>                        "age"   => 42,
+        ...(5)>                        "langs" => ~w{elixir julia haskell} } }
+        ...(5)> Resume.Composer.gets(cv, ~w{person langs}, ", ")
+        "elixir, julia, haskell" 
+
+  """
   def gets(cv, keys, joiner \\ " ") do
      case get(cv, keys) do
       nil -> raise "ERROR FetchKey returned nil #{inspect cv} <- #{inspect keys}"
@@ -28,12 +82,35 @@ defmodule Resume.Composer do
     end
   end
 
+  @doc """
+  Get the list of values corresponding to the keys from a map.
+
+        iex(6)> map = %{1 => "one", 2 => "two", 3 => "three", 4 => "four"}
+        ...(6)> primes = [2, 3]
+        ...(6)> Resume.Composer.only(map, primes)
+        ~w{two three}
+  """
   def only(map, keys) do
     keys
     |> Enum.reduce([], fn k, r -> [Map.fetch!(map, k) | r] end)
     |> Enum.reverse
   end
 
+  @doc """
+  Like `only` but return the keys too, thus the result is a list of pairs
+
+        iex(7)> map = %{1 => "one", 2 => "two", 3 => "three", 4 => "four"}
+        ...(7)> primes = [2, 3]
+        ...(7)> Resume.Composer.pairs(map, primes)
+        [{2, "two"}, {3, "three"}]
+
+  In case of symbol keys, this will get us a result of type `Keyword.t`
+
+        iex(8)> map = %{three: 3, four: 4, five: 5}
+        ...(8)> primes = ~w{three five}a
+        ...(8)> Resume.Composer.pairs(map, primes)
+        [three: 3, five: 5]
+  """
   def pairs(map, keys) do
     keys
     |> Enum.reduce([], fn k, r -> [{k, Map.fetch!(map, k)} | r] end)
