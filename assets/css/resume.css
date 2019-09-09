@@ -53,6 +53,10 @@ ul {
   margin: 0 0 15px 0;
 }
 
+div.period span.period {
+  margin-left: 1em;
+}
+
 .geekometer {
   font-family: Arial Narrow;
   margin: 0 0 0 2rem;

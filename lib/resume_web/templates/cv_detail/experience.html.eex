@@ -1,8 +1,12 @@
 <div class="experience-title">
   <%= @composer.gets(@experience, "job_title") |> @composer.render(:div, class: "job-title") %>
   <div class="period">
-    <%= @composer.gets(@experience, "employer") |> @composer.render() %>
-    <%= @composer.gets(@experience, "period") |> @composer.render() %>
+    <span class="employer">
+      <%= @composer.gets(@experience, "employer") |> @composer.render() %>
+    </span>
+    <span class="period">
+      <%= @composer.gets(@experience, "period") |> @composer.render() %>
+    </span>
   </div>
 </div>
 <div class="experience-desc row">

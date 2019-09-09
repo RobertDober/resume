@@ -123,7 +123,8 @@ defmodule Resume.Composer do
     {:safe, Enum.join(rendered, "\n") }
   end
   def render(ele, tag, options) do
-    { :safe, _render(ele, tag, options) }
+    rendered = _render(ele, tag, options)
+    { :safe, rendered }
   end
 
   def render_pairs(pairs, tag \\ nil, options \\ []) do
