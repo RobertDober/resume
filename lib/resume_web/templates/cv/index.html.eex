@@ -23,15 +23,12 @@
           <td>
             <%= cv.lang %>
           </td>
-          <td>
-            <% template = Map.get(cv, :template) %>
-            <%= if template do %>
-            <%= link "Show", to: Routes.cv_path(@conn, :template, cv.lang, cv.version, template) %>
-            <% else %>
-              <%= link "Show", to: Routes.cv_path(@conn, :show, cv.lang, cv.version) %>
-            <% end %>
-
-          </td>
+          <% renderers = Map.get(cv, :renderers) %>
+          <%= for renderer <- renderers do %>
+            <td>
+              <%= link renderer, to: Routes.cv_path(@conn, :show, cv.lang, cv.version, renderer: renderer) %>
+            </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

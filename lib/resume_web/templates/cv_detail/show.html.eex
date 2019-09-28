@@ -3,7 +3,7 @@
     <%= render "header.html", composer: @composer, cv: @cv %>
   </div>
 
-  <div class="section">
+  <div class="section experiences">
     <a name="experiences"></a>
     <div class="experiences">
       <%= render "experiences.html", composer: @composer, cv: @cv, data: @composer.get(@cv, "content.experiences") %>

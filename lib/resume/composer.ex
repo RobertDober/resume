@@ -7,27 +7,27 @@ defmodule Resume.Composer do
 
   Keys can be specified as arrays,
 
-        iex(0)> cv = %{ "sections" =>
-        ...(0)>   %{ "header" => %{ "name" => "Robert", "age" => 42 } },
-        ...(0)>        "title" => "my CV" }
-        ...(0)> Resume.Composer.get(cv, ~w{sections header name})
+        iex(1)> cv = %{ "sections" =>
+        ...(1)>   %{ "header" => %{ "name" => "Robert", "age" => 42 } },
+        ...(1)>        "title" => "my CV" }
+        ...(1)> Resume.Composer.get(cv, ~w{sections header name})
         "Robert"
 
   ... or as dot expressions
 
-        iex(1)> cv = %{ "sections" =>
-        ...(1)>   %{ "header" => %{ "name" => "Robert", "age" => 42 } },
-        ...(1)>        "title" => "my CV" }
-        ...(1)> Resume.Composer.get(cv, "sections.header.name")
+        iex(2)> cv = %{ "sections" =>
+        ...(2)>   %{ "header" => %{ "name" => "Robert", "age" => 42 } },
+        ...(2)>        "title" => "my CV" }
+        ...(2)> Resume.Composer.get(cv, "sections.header.name")
         "Robert"
 
   In order to avoid unpleasentness in case of ignorable presence of the key it is
   suggested to provide a default
 
-        iex(2)> cv = %{ "sections" =>
-        ...(2)>   %{ "header" => %{ "name" => "Robert", "age" => 42 } },
-        ...(2)>        "title" => "my CV" }
-        ...(2)> Resume.Composer.get(cv, "sections.title.name", "John Doe")
+        iex(3)> cv = %{ "sections" =>
+        ...(3)>   %{ "header" => %{ "name" => "Robert", "age" => 42 } },
+        ...(3)>        "title" => "my CV" }
+        ...(3)> Resume.Composer.get(cv, "sections.title.name", "John Doe")
         "John Doe"
   """
   def get(cv, keys, default \\ nil)
@@ -50,44 +50,65 @@ defmodule Resume.Composer do
   to make it up the result is guranteed to be a string (well if found).
   Either by calling `to_string`
 
-        iex(3)> cv = %{ "person" => %{ "name"  => "Robert", 
-        ...(3)>                        "age"   => 42,
-        ...(3)>                        "langs" => ~w{elixir julia haskell} } }
-        ...(3)> Resume.Composer.gets(cv, "person.age")
+        iex(4)> cv = %{ "person" => %{ "name"  => "Robert", 
+        ...(4)>                        "age"   => 42,
+        ...(4)>                        "langs" => ~w{elixir julia haskell} } }
+        ...(4)> Resume.Composer.gets(cv, "person.age")
         "42"
 
   ... or by joining an Enum together
 
-        iex(4)> cv = %{ "person" => %{ "name"  => "Robert", 
-        ...(4)>                        "age"   => 42,
-        ...(4)>                        "langs" => ~w{elixir julia haskell} } }
-        ...(4)> Resume.Composer.gets(cv, ~w{person langs})
+        iex(5)> cv = %{ "person" => %{ "name"  => "Robert", 
+        ...(5)>                        "age"   => 42,
+        ...(5)>                        "langs" => ~w{elixir julia haskell} } }
+        ...(5)> Resume.Composer.gets(cv, ~w{person langs})
         "elixir julia haskell" 
 
   One can join with other things than spaces, of course:
 
-        iex(5)> cv = %{ "person" => %{ "name"  => "Robert", 
-        ...(5)>                        "age"   => 42,
-        ...(5)>                        "langs" => ~w{elixir julia haskell} } }
-        ...(5)> Resume.Composer.gets(cv, ~w{person langs}, ", ")
+        iex(6)> cv = %{ "person" => %{ "name"  => "Robert", 
+        ...(6)>                        "age"   => 42,
+        ...(6)>                        "langs" => ~w{elixir julia haskell} } }
+        ...(6)> Resume.Composer.gets(cv, ~w{person langs}, ", ")
         "elixir, julia, haskell" 
 
+  Prefixes can come in handy too:
+
+        iex(7)> cv = %{ "person" => %{ "name"  => "Robert", 
+        ...(7)>                        "age"   => 42,
+        ...(7)>                        "langs" => ~w{elixir julia haskell} } }
+        ...(7)> Resume.Composer.gets(cv, ~w{person langs}, ", ", prefix: ">")
+        ">elixir, >julia, >haskell" 
+
+  The interface is versatile enough, not to need an explicit joiner for prefixes:
+
+        iex(7)> cv = %{ "person" => %{ "name"  => "Robert", 
+        ...(7)>                        "age"   => 42,
+        ...(7)>                        "langs" => ~w{elixir julia haskell} } }
+        ...(7)> Resume.Composer.gets(cv, ~w{person langs}, prefix: ">")
+        ">elixir >julia >haskell" 
+
   """
-  def gets(cv, keys, joiner \\ " ") do
-     case get(cv, keys) do
-      nil -> raise "ERROR FetchKey returned nil #{inspect cv} <- #{inspect keys}"
-      value when is_list(value) -> Enum.join(value, joiner)
-      value when is_map(value) -> raise "ERROR `gets` can only access scalar values, not #{inspect value}" 
-      t   -> to_string(t)
-    end
+  def gets(cv, keys, joiner \\ " ", options \\ [])
+  def gets(cv, keys, joiner,  _options) when is_list(joiner) do
+    gets(cv, keys, " ", joiner)
+  end
+  def gets(cv, keys, joiner, options ) do
+    prefix = Keyword.get(options, :prefix, "")
+       case get(cv, keys) do
+        nil -> raise "ERROR FetchKey returned nil #{inspect cv} <- #{inspect keys}"
+        value when is_list(value) -> Enum.join(Enum.map(value, _prefix_with_fn(prefix)), joiner)
+        value when is_map(value) -> raise "ERROR `gets` can only access scalar values, not #{inspect value}" 
+        t   -> to_string(t)
+      end
   end
 
   @doc """
   Get the list of values corresponding to the keys from a map.
 
-        iex(6)> map = %{1 => "one", 2 => "two", 3 => "three", 4 => "four"}
-        ...(6)> primes = [2, 3]
-        ...(6)> Resume.Composer.only(map, primes)
+        iex(8)> map = %{1 => "one", 2 => "two", 3 => "three", 4 => "four"}
+        ...(8)> primes = [2, 3]
+        ...(8)> Resume.Composer.only(map, primes)
         ~w{two three}
   """
   def only(map, keys) do
@@ -99,16 +120,16 @@ defmodule Resume.Composer do
   @doc """
   Like `only` but return the keys too, thus the result is a list of pairs
 
-        iex(7)> map = %{1 => "one", 2 => "two", 3 => "three", 4 => "four"}
-        ...(7)> primes = [2, 3]
-        ...(7)> Resume.Composer.pairs(map, primes)
+        iex(9)> map = %{1 => "one", 2 => "two", 3 => "three", 4 => "four"}
+        ...(9)> primes = [2, 3]
+        ...(9)> Resume.Composer.pairs(map, primes)
         [{2, "two"}, {3, "three"}]
 
   In case of symbol keys, this will get us a result of type `Keyword.t`
 
-        iex(8)> map = %{three: 3, four: 4, five: 5}
-        ...(8)> primes = ~w{three five}a
-        ...(8)> Resume.Composer.pairs(map, primes)
+        iex(10)> map = %{three: 3, four: 4, five: 5}
+        ...(10)> primes = ~w{three five}a
+        ...(10)> Resume.Composer.pairs(map, primes)
         [three: 3, five: 5]
   """
   def pairs(map, keys) do
@@ -157,6 +178,10 @@ defmodule Resume.Composer do
   end
   defp _make_tag(%{"color" => color, "item" => item, "size" => size, "weight" => weight}) do
     with {:ok, tag} <- "#{item} #{size} #{weight} #{color}" |> EarmarkTagCloud.one_tag, do: tag
+  end
+
+  defp _prefix_with_fn(prefix) do
+    fn x -> [prefix, x] |> Enum.join end
   end
 
   defp _render(ele, nil, options) do

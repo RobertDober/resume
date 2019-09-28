@@ -31,6 +31,7 @@ defmodule ResumeWeb do
     quote do
       use Phoenix.View,
         root: "lib/resume_web/templates",
+        pattern: "**/*",
         namespace: ResumeWeb
 
       # Import convenience functions from controllers
