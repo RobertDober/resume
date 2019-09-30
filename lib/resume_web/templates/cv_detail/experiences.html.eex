@@ -1,6 +1,0 @@
-<%= @composer.gets(@cv, "presentation.titles.experiences") |> @composer.render(:h4) %>
-<%= for experience <- Enum.reverse(@data) do %>
-  <div class="experience">
-    <%= render "#{@renderer}/experience.html", composer: @composer, experience: experience, renderer: @renderer %>
-  </div>
-<% end %>
