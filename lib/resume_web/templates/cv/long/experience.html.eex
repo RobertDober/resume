@@ -1,0 +1,22 @@
+<div class="experience-title">
+  <%= @composer.gets(@experience, "job_title") |> @composer.render(:div, class: "job-title") %>
+  <div class="period">
+    <span class="employer">
+      <%= @composer.gets(@experience, "employer") |> @composer.render() %>
+    </span>
+    <span class="period">
+      <%= @composer.gets(@experience, "period") |> @composer.render() %>
+    </span>
+  </div>
+</div>
+<div class="experience-explicit-desc row">
+  <%= [
+    [ [@composer.gets(@cv, "presentation.titles.challanges"), class: "experience-challanges"],
+      [@composer.gets(@experience, "challenges", " | ") |> @composer.render(nil, markdown: true, unsafe: true), class: "experience-challanges"] ],
+    [ [@composer.gets(@cv, "presentation.titles.domain1"), class: "experience-domain1"],
+    ["#{@composer.gets(@experience, "summary.domain")} / #{@composer.gets(@experience, "summary.team_size")}", class: "experience-domain1"] ],
+    [ [@composer.gets(@cv, "presentation.titles.tech_stack"), class: "experience-tech-stack"],
+      [@composer.gets(@experience, "tech", " / "), class: "experience-tech-stack"] ] 
+    ] |> Dl.dl
+  %>
+</div>

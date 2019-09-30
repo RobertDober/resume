@@ -141,11 +141,19 @@ defmodule Resume.Composer do
   def render(eles, tag \\ nil, options \\ [])
   def render(eles, tag, options) when is_list(eles) do
     rendered = Enum.map(eles, &_render(&1, tag, options))
-    {:safe, Enum.join(rendered, "\n") }
+    if Keyword.get(options, :unsafe, false) do
+      Enum.join(rendered, "\n")
+    else
+      {:safe, Enum.join(rendered, "\n") }
+    end
   end
   def render(ele, tag, options) do
     rendered = _render(ele, tag, options)
-    { :safe, rendered }
+    if Keyword.get(options, :unsafe, false) do
+      rendered
+    else
+      {:safe, rendered}
+    end
   end
 
   def render_pairs(pairs, tag \\ nil, options \\ []) do

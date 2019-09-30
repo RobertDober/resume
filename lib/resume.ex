@@ -1,4 +1,5 @@
 defmodule Resume do
+  require IEx; IEx.pry
   @moduledoc """
   A Phoenix app to create CVS
 

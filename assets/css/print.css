@@ -9,4 +9,7 @@
   div.experiences {
     page-break-after: always;
   }
+  div#info {
+    display: none;
+  }
 }

@@ -1,0 +1,7 @@
+<div id="info">
+  <pre><code>
+    CV: <%= @title %>
+    Renderer: <%= @renderer %>
+  </code></pre>
+</div>
+  <%= render("#{@renderer}/show.html", composer: Resume.Composer, cv: @cv, title: @title, renderer: @renderer ) %>

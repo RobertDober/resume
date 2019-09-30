@@ -16,7 +16,8 @@ defmodule ResumeWeb.CvController do
     yaml = Cvs.yaml(lang, version) |> hd()
     conn
     # |> put_layout(false)
-    |> render("#{renderer}/show.html", composer: Resume.Composer, cv: yaml, title: "CV-#{name_for_title}-#{lang}-#{version}", renderer: renderer )
+    |> render("show.html", composer: Resume.Composer, cv: yaml, title: "CV-#{name_for_title}-#{lang}-#{version}", renderer: renderer )
+    # |> render("#{renderer}/show.html", composer: Resume.Composer, cv: yaml, title: "CV-#{name_for_title}-#{lang}-#{version}", renderer: renderer )
   end
 
   def template(conn, %{"lang" => lang, "version" => version, "template" => template}) do
