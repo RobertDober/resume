@@ -6,7 +6,7 @@ Ruby 22 800 #d40000
 Capybara 20 800 #b10000
 CSS3 16 400 8
 # Vue.js 18 100 4
-React 18 100 12 
+React 18 300 12 
 Rails 20 800 #c20000
 git 24 800 12
 yaml 20 800 10

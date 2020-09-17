@@ -6,7 +6,7 @@
     font-weight: 400;
     text-align: right;
   }
-  div.experiences {
+  div.experiences-w-break {
     page-break-after: always;
   }
   div#info {

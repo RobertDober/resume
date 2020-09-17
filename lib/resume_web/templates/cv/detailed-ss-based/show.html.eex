@@ -4,6 +4,13 @@
   </div>
 
   <div class="section">
+    <a name="soft_skills"></a>
+    <div class="soft-skills">
+      <%= render "#{@renderer}/soft_skills.html", composer: @composer, cv: @cv, data: @composer.get(@cv, "content.soft_skills"), renderer: @renderer %>
+    </div>
+  </div>
+
+  <div class="section">
     <a name="experiences"></a>
     <div class="experiences">
       <%= render "#{@renderer}/experiences.html", composer: @composer, cv: @cv, data: @composer.get(@cv, "content.experiences"), renderer: @renderer %>
@@ -33,6 +40,16 @@
     </div>
   </div>
 
+  <% if @composer.get(@cv, "use_geekometer") == "yes" do %>
+  <div class="section">
+    <a name="geekometer"></a>
+    <h4><%= @composer.gets(@cv, "content.geekometer.name") %></h4>
+    <div class="geekometer">
+      <%= @composer.get(@cv, "content.geekometer.tag_cloud", optional: true) |> @composer.render_tag_cloud %>
+    </div>
+  </div>
+  <% end %>
+
   <%= if hobbies = @composer.get(@cv, "content.hobbies", nil) do %>
     <div class="section">
       <a name="hobbies"></a>
@@ -41,10 +58,8 @@
     </div>
   <% end %>
   <footer>
-  <!-- TODO: Need to put this at the end of the **third** page 
   <i>Created with <a href="https://github.com/RobertDober/resume">Github: RobertDober/resume</a>
- © 2019 Robert Dober
+ © 2019,20 Robert Dober
     <i>
-      -->
   </footer>
 </div>

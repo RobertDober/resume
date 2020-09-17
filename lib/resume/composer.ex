@@ -95,8 +95,10 @@ defmodule Resume.Composer do
   end
   def gets(cv, keys, joiner, options ) do
     prefix = Keyword.get(options, :prefix, "")
-       case get(cv, keys) do
+    optional = Keyword.get(options, :optional, nil)
+       case get(cv, keys, optional) do
         nil -> raise "ERROR FetchKey returned nil #{inspect cv} <- #{inspect keys}"
+        ^optional -> nil
         value when is_list(value) -> Enum.join(Enum.map(value, _prefix_with_fn(prefix)), joiner)
         value when is_map(value) -> raise "ERROR `gets` can only access scalar values, not #{inspect value}" 
         t   -> to_string(t)

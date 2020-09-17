@@ -1,0 +1,14 @@
+<%= for hobby <- @data do %>
+  <div class="hobby">
+    <div class="hobby-description">
+      <%= @composer.gets(hobby, "description") |> @composer.render(nil, markdown: true) %>
+    </div>
+    <div class="hobby-activities">
+      <%= for activity <- @composer.get(hobby, "activities") do %>
+        <div class="hobby-activity">
+          <%= @composer.render(" • #{activity}", nil, markdown: true) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

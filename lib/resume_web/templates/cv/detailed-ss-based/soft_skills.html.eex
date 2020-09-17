@@ -1,0 +1,6 @@
+<%= @composer.gets(@cv, "presentation.titles.soft_skills") |> @composer.render(:h4) %>
+<%= for soft_skill <- Enum.reverse(@data) do %>
+  <div class="soft-skill">
+    <%= render "#{@renderer}/soft_skill.html", composer: @composer, soft_skill: soft_skill, renderer: @renderer %>
+  </div>
+<% end %>

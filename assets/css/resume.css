@@ -156,6 +156,10 @@ li.profile:before {
   content: "\27a4 ";
   /* content: "\1f600 "; */
 }
+li.nat:before {
+  content: "\1f1eb\1f1f7 "; 
+  
+}
 li.www:before {
   content: "\1f310 ";
   font-size: 10pt;

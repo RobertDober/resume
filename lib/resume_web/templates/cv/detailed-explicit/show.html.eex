@@ -33,13 +33,15 @@
     </div>
   </div>
 
+  <% if @composer.get(@cv, "use_geekometer") == "yes" do %>
   <div class="section">
     <a name="geekometer"></a>
     <h4><%= @composer.gets(@cv, "content.geekometer.name") %></h4>
     <div class="geekometer">
-      <%= @composer.get(@cv, "content.geekometer.tag_cloud") |> @composer.render_tag_cloud %>
+      <%= @composer.get(@cv, "content.geekometer.tag_cloud", optional: true) |> @composer.render_tag_cloud %>
     </div>
   </div>
+  <% end %>
 
   <%= if hobbies = @composer.get(@cv, "content.hobbies", nil) do %>
     <div class="section">
@@ -50,7 +52,7 @@
   <% end %>
   <footer>
   <i>Created with <a href="https://github.com/RobertDober/resume">Github: RobertDober/resume</a>
- © 2019 Robert Dober
+ © 2019,20 Robert Dober
     <i>
   </footer>
 </div>
